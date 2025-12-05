@@ -17,6 +17,20 @@ class GitFile extends DomainEntity<GitFile> implements GitFile {
   public static unique = ['uri'] as const;
 }
 
+/**
+ * .what = an example generic artifact type
+ * .why = demonstrates the issue with generic classes losing type parameters
+ */
+interface GenericGitFile<TContent> {
+  uri: string;
+  hash: string;
+  content: TContent;
+}
+class GenericGitFile<TContent> extends DomainEntity<GenericGitFile<TContent>> {
+  public static primary = ['uri'] as const;
+  public static unique = ['uri'] as const;
+}
+
 describe('Artifact', () => {
   given('an Artifact<GitFile>', () => {
     const initialFile: GitFile = {
@@ -68,6 +82,59 @@ describe('Artifact', () => {
         const result = await artifact.get();
         expect(result).toBeNull();
       });
+    });
+  });
+
+  given('an Artifact<GenericGitFile> with string content', () => {
+    const initialFile: GenericGitFile<string> = {
+      uri: '/src/index.ts',
+      hash: 'abc123',
+      content: 'console.log("hello")',
+    };
+
+    let currentContent: string | null = initialFile.content;
+
+    const artifact: Artifact<typeof GenericGitFile, string> = {
+      ref: { uri: 'file-001' },
+      get: withExpectOutput(async () =>
+        currentContent === null
+          ? null
+          : {
+              ...initialFile,
+              content: currentContent,
+            },
+      ),
+      set: async () => {
+        currentContent = 'console.log("updated")';
+        return { ...initialFile, content: currentContent };
+      },
+      del: async () => {
+        currentContent = null;
+      },
+    };
+
+    when('calling get()', () => {
+      then(
+        'it should return content typed as string, not unknown',
+        async () => {
+          const result = await artifact.get();
+          const typedContent: string | undefined = result?.content;
+          expect(typedContent).toBe('console.log("hello")');
+        },
+      );
+    });
+
+    when('calling set()', () => {
+      then(
+        'it should return content typed as string, not unknown',
+        async () => {
+          const result = await artifact.set({
+            content: 'console.log("updated")',
+          });
+          const typedContent: string = result.content;
+          expect(typedContent).toBe('console.log("updated")');
+        },
+      );
     });
   });
 });

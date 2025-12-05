@@ -19,13 +19,17 @@ export interface Artifact<
    * .what = loads the resource if it exists, else returns null
    * .why  = avoids throwing on missing files; supports optional or lazy creation
    */
-  get: WithExpectOutput<() => Promise<InstanceType<TRefable> | null>>;
+  get: WithExpectOutput<
+    () => Promise<(InstanceType<TRefable> & { content: TContent }) | null>
+  >;
 
   /**
    * .what = writes or replaces the resource with new content
    * .why  = enables mutation and tracking via updated instance
    */
-  set: (input: { content: TContent }) => Promise<InstanceType<TRefable>>;
+  set: (input: {
+    content: TContent;
+  }) => Promise<InstanceType<TRefable> & { content: TContent }>;
 
   /**
    * .what = deletes the underlying resource if it exists
