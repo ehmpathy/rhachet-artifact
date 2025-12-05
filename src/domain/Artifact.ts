@@ -1,5 +1,5 @@
-import { WithExpectOutput } from 'as-procedure';
-import { DomainEntity, Refable, RefByUnique } from 'domain-objects';
+import type { WithExpectOutput } from 'as-procedure';
+import { DomainEntity, type Refable, type RefByUnique } from 'domain-objects';
 
 /**
  * .what = an artifact that can be leveraged throughout a weave
