@@ -1,1 +1,1 @@
-export * from './domain/Artifact';
+export * from './domain.objects/Artifact';
