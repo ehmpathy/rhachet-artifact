@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       as-procedure:
-        specifier: 1.1.7
-        version: 1.1.7
+        specifier: 1.1.11
+        version: 1.1.11
       domain-objects:
         specifier: 0.31.9
         version: 0.31.9
@@ -2025,6 +2025,10 @@ packages:
     resolution: {integrity: sha512-DS5kqZTZw7blxhJyKAIy7hU8nWOtftIB+vRtzivkdxKSyQABQeRqtlfLw5HkYbpXZpUOV+znI9xUpFgxoxNctQ==}
     engines: {node: '>=8.0.0'}
 
+  as-procedure@1.1.11:
+    resolution: {integrity: sha512-dnWCi51YDVMEHeDrEsMhMMOOBEJLS59altq48N7WSoJKepiJfXRA7x6NETFCGP9jk2Ti6eeYO3+CA27j+XlPUQ==}
+    engines: {node: '>=8.0.0'}
+
   as-procedure@1.1.6:
     resolution: {integrity: sha512-z1pWF1MGzP2t8tb+5A3FOBCWfPiQh+Ipas6knpfwQiLZJMSMJaDEEwxYrsVY0PBHTo4ZpF2Z/FstN5/76eZBpA==}
     engines: {node: '>=8.0.0'}
@@ -3107,6 +3111,10 @@ packages:
   isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
 
+  iso-time@1.10.1:
+    resolution: {integrity: sha512-3BQe0H4ZPM7O1w3TIxwoRSCf9gQ/h+dzcbOEn8Dos3OByQ0mLRV1tqnk0hwzjnXYNgXjWHxF2dHZVq2rdfpnWg==}
+    engines: {node: '>=8.0.0'}
+
   isomorphic-git@1.36.1:
     resolution: {integrity: sha512-fC8SRT8MwoaXDK8G4z5biPEbqf2WyEJUb2MJ2ftSd39/UIlsnoZxLGux+lae0poLZO4AEcx6aUVOh5bV+P8zFA==}
     engines: {node: '>=14.17'}
@@ -4093,6 +4101,10 @@ packages:
 
   simple-log-methods@0.6.5:
     resolution: {integrity: sha512-0SevGkW2AXWkxsNa12VAlFxeIbnSDz08JGjpVZ/YS5Exir35HE90vGepn7PlGYv3aJH2pM3s2m4KL9qVT5lC2A==}
+    engines: {node: '>=8.0.0'}
+
+  simple-log-methods@0.6.9:
+    resolution: {integrity: sha512-VeI9erbjgKtZ8bwdpHqkqgZomVqchZHFWidN3/5Jmb6UcKHKdduiADPAVqIwvFmobFOEtIyybyVw5bEaZpKODw==}
     engines: {node: '>=8.0.0'}
 
   simple-on-disk-cache@1.7.3:
@@ -7025,6 +7037,14 @@ snapshots:
       - ws
       - zod
 
+  as-procedure@1.1.11:
+    dependencies:
+      domain-glossary-procedure: 1.0.0
+      helpful-errors: 1.5.3
+      serde-fns: 1.0.0
+      simple-log-methods: 0.6.9
+      type-fns: 1.21.0
+
   as-procedure@1.1.6:
     dependencies:
       '@ehmpathy/error-fns': 1.3.2
@@ -8349,6 +8369,13 @@ snapshots:
   isarray@2.0.5: {}
 
   isexe@2.0.0: {}
+
+  iso-time@1.10.1:
+    dependencies:
+      date-fns: 3.6.0
+      domain-glossaries: 1.0.0
+      helpful-errors: 1.5.3
+      type-fns: 1.21.0
 
   isomorphic-git@1.36.1:
     dependencies:
@@ -9840,6 +9867,15 @@ snapshots:
       domain-glossary-procedure: 1.0.0
       domain-objects: 0.31.3
       helpful-errors: 1.5.3
+      type-fns: 1.21.0
+
+  simple-log-methods@0.6.9:
+    dependencies:
+      '@ehmpathy/error-fns': 1.3.7
+      domain-glossary-procedure: 1.0.0
+      domain-objects: 0.31.9
+      helpful-errors: 1.5.3
+      iso-time: 1.10.1
       type-fns: 1.21.0
 
   simple-on-disk-cache@1.7.3:
