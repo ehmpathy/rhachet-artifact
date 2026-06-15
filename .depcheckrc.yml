@@ -21,3 +21,9 @@ ignores:
   - rhachet-roles-ehmpathy
   - tsc-alias
   - yalc
+  - rhachet-brains-anthropic
+  - rhachet-brains-fireworksai
+  - rhachet-brains-xai
+  - rhachet-roles-rhachet
+  - test-fns
+  - type-fns
