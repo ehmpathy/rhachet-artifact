@@ -2,7 +2,7 @@
   "name": "rhachet-artifact",
   "author": "ehmpathy",
   "description": "declare artifacts with a simple, universal contract",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "repository": "ehmpathy/rhachet-artifact",
   "homepage": "https://github.com/ehmpathy/rhachet-artifact",
   "keywords": [
